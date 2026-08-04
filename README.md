@@ -88,4 +88,4 @@ Each entry carries structured frontmatter (source, captured time, type, review s
 
 **Note:** This repository documents the architecture and workflow. The wiki contents, credentials, and personal data are not included.
 
-*Built by [Hwang Sukha](https://github.com/kordp888) — AI Native Product Builder. Why comes first. Building comes next.*
+*Built by [Derrick Hwang](https://github.com/kordp888) — AI Native Product Builder. Why comes first. Building comes next.*

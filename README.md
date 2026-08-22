@@ -1,8 +1,8 @@
 # LLM Wiki
 
-> **A 24/7 knowledge production system — local sLLMs and agents that continuously collect, distill, connect, and reuse knowledge. Nothing ships without a human gate.**
+> **A 24/7 knowledge production system, local sLLMs and agents that continuously collect, distill, connect, and reuse knowledge. Nothing ships without a human gate.**
 
-⚙️ **Status:** running 24/7 on local infrastructure — 500+ tests, ~5s suite
+⚙️ **Status:** running 24/7 on local infrastructure, 500+ tests, ~5s suite
 🇰🇷 한국어 요약은 [README.ko.md](./README.ko.md)를 참고하세요.
 
 ---
@@ -11,9 +11,9 @@
 
 Most personal knowledge bases are graveyards: you save things, and they die there.
 
-I wanted the opposite — a system where knowledge is **produced, not just stored**. Something that works while I sleep: collecting new information, analyzing it, structuring it, and connecting it back to everything I already know, so that every question I ask tomorrow starts from a richer base than today.
+I wanted the opposite, a system where knowledge is **produced, not just stored**. Something that works while I sleep: collecting new information, analyzing it, structuring it, and connecting it back to everything I already know, so that every question I ask tomorrow starts from a richer base than today.
 
-And I wanted it to run **locally**. Not every thought needs to go through a cloud API — small local LLMs (sLLMs) are now good enough to summarize, classify, and fact-check on your own machine, cutting cost and external dependency to near zero.
+And I wanted it to run **locally**. Not every thought needs to go through a cloud API, small local LLMs (sLLMs) are now good enough to summarize, classify, and fact-check on your own machine, cutting cost and external dependency to near zero.
 
 ## The One-Sentence Design
 
@@ -38,7 +38,7 @@ The governing principle across the whole pipeline: **model output approves nothi
 21:35  research     checked news → Fact Packs · Content Briefs · queue
 ```
 
-**Ordering is a contract.** Steps that read another step's output are scheduled after it — and that dependency is documented, tested, and was learned the hard way.
+**Ordering is a contract.** Steps that read another step's output are scheduled after it, and that dependency is documented, tested, and was learned the hard way.
 
 ## Intelligence Layers
 
@@ -51,20 +51,20 @@ Cost policy dictates placement. Metered APIs are **disabled by default** and can
 | 3 · Subscription cloud | 1M-context models | daily wide-context synthesis pass |
 | 4 · Metered API | flag-gated | nothing, unless explicitly enabled per run |
 
-Local models cap at 64K context, and the system prompt eats ~60% of it — so **long-input synthesis is a layer-3 job by design**, not an accident.
+Local models cap at 64K context, and the system prompt eats ~60% of it, so **long-input synthesis is a layer-3 job by design**, not an accident.
 
-## Safety Architecture — every rule came from a real incident
+## Safety Architecture: every rule came from a real incident
 
-- **Additive-only sync.** Mobile checks propagate `[ ]`→`[x]` **only**. Unchecks, deletions, and row removals never flow back. A bidirectional mirror once propagated a mobile-side deletion and wiped 171 wiki files — the fix wasn't a better merge, it was **making destructive signals unrepresentable**. Rows are matched by stable markers, not line positions, because mobile editors reorder files just by opening them.
-- **Three human gates.** Entity approval (phone check → registry), engine handoff (separate approval file), data-engine activation (10-gate checklist). Without the gate, the pipeline structurally produces zero bindings — it doesn't "warn," it can't proceed.
-- **Prompt-injection defense skeleton.** Every prompt touching external input uses the same 4-part frame: trust boundary declaration → instruction-execution ban → fixed output schema → quarantined data last. And prompts are never trusted alone — return values are code-validated (key sets, types, allowed values; model-cited IDs are accepted only if they exist in the input).
-- **Artifacts over exit codes.** Three cron jobs once finished `ok` while the pipeline bound nothing. **`exit 0` does not mean success** — health verdicts judge output artifacts (counts, freshness), never process status.
+- **Additive-only sync.** Mobile checks propagate `[ ]`→`[x]` **only**. Unchecks, deletions, and row removals never flow back. A bidirectional mirror once propagated a mobile-side deletion and wiped 171 wiki files, the fix wasn't a better merge, it was **making destructive signals unrepresentable**. Rows are matched by stable markers, not line positions, because mobile editors reorder files just by opening them.
+- **Three human gates.** Entity approval (phone check → registry), engine handoff (separate approval file), data-engine activation (10-gate checklist). Without the gate, the pipeline structurally produces zero bindings, it doesn't "warn," it can't proceed.
+- **Prompt-injection defense skeleton.** Every prompt touching external input uses the same 4-part frame: trust boundary declaration → instruction-execution ban → fixed output schema → quarantined data last. And prompts are never trusted alone, return values are code-validated (key sets, types, allowed values; model-cited IDs are accepted only if they exist in the input).
+- **Artifacts over exit codes.** Three cron jobs once finished `ok` while the pipeline bound nothing. **`exit 0` does not mean success**, health verdicts judge output artifacts (counts, freshness), never process status.
 
 ## Stack
 
 | Layer | Technology |
 |---|---|
-| Local models | Qwen, Gemma, EXAONE, DeepSeek — compared & selected per task |
+| Local models | Qwen, Gemma, EXAONE, DeepSeek, compared & selected per task |
 | Cloud models (selective) | large-context models for synthesis; metered APIs flag-gated |
 | Agent | Hermes Agent (scheduled orchestration + Telegram interface) |
 | Storage | Obsidian-compatible Markdown + JSON, git-versioned, local-only |
@@ -75,8 +75,8 @@ Local models cap at 64K context, and the system prompt eats ~60% of it — so **
 Each entry carries structured frontmatter (source, captured time, type, review status, tags), which makes the wiki:
 
 1. **Searchable** by topic, time, and provenance
-2. **Trustworthy** — reviewed vs. unreviewed knowledge is explicit
-3. **Reusable** — agents can query it as context for new work
+2. **Trustworthy**, reviewed vs. unreviewed knowledge is explicit
+3. **Reusable**, agents can query it as context for new work
 
 ## Future
 
@@ -88,4 +88,4 @@ Each entry carries structured frontmatter (source, captured time, type, review s
 
 **Note:** This repository documents the architecture and workflow. The wiki contents, credentials, and personal data are not included.
 
-*Built by [Derrick Hwang](https://github.com/kordp888) — AI Native Product Manager. Why comes first. Building comes next.*
+*Built by [Derrick Hwang](https://github.com/kordp888), AI Native Product Manager. Why comes first. Building comes next.*

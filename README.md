@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/hero.png" alt="LLM Wiki, a locally operated knowledge production system with human approval gates">
+</p>
+
 # LLM Wiki
 
 > **A 24/7 knowledge production system, local sLLMs and agents that continuously collect, distill, connect, and reuse knowledge. Nothing ships without a human gate.**
@@ -23,6 +27,8 @@ The governing principle across the whole pipeline: **model output approves nothi
 
 ## A Day in the Pipeline
 
+![Factuality QA gate from collection to gated upload](docs/diagrams/qa-gate.svg)
+
 ```
 07:00  collect      gather → dedupe → channel-fit scoring (local sLLM) → review file
 07:03  propose      rank entity candidates → inject approval rows into review file
@@ -41,6 +47,8 @@ The governing principle across the whole pipeline: **model output approves nothi
 **Ordering is a contract.** Steps that read another step's output are scheduled after it, and that dependency is documented, tested, and was learned the hard way.
 
 ## Intelligence Layers
+
+![Local sLLM orchestration with measured prompt and response improvements](docs/diagrams/orchestration.svg)
 
 Cost policy dictates placement. Metered APIs are **disabled by default** and cannot be called without an explicit flag.
 

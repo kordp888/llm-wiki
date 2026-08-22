@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Local small language model orchestration</title>
+  <desc id="desc">A messaging assistant routes work through one resident Korean triage model, on-demand analysis and response models, and a cloud fallback that activates only when local execution fails.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#071E3D" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#6B7480"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 4px; fill: #A66206; }
+      .headline { font-size: 58px; font-weight: 760; fill: #071E3D; letter-spacing: -1.5px; }
+      .subhead { font-size: 24px; font-weight: 450; fill: #6B7480; }
+      .node-title { font-size: 24px; font-weight: 720; fill: #16202B; }
+      .node-copy { font-size: 18px; font-weight: 450; fill: #6B7480; }
+      .node-title-inverse { font-size: 25px; font-weight: 750; fill: #FFFFFF; }
+      .node-copy-inverse { font-size: 18px; font-weight: 500; fill: #FFFFFF; opacity: 0.84; }
+      .metric { font-size: 40px; font-weight: 800; fill: #0B2E5C; letter-spacing: -1px; }
+      .metric-label { font-size: 17px; font-weight: 600; fill: #6B7480; }
+      .pill { font-size: 15px; font-weight: 800; letter-spacing: 1.5px; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+  <rect x="64" y="54" width="1472" height="792" rx="36" fill="#FFFFFF" stroke="#DFE3E8" stroke-width="2"/>
+
+  <text x="118" y="125" class="sans eyebrow">LOCAL sLLM ORCHESTRATION</text>
+  <text x="118" y="192" class="sans headline">Keep routine work local</text>
+  <text x="118" y="232" class="sans subhead">Load only the model a task needs. Use cloud capacity only after local failure.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="118" y="358" width="244" height="142" rx="24" fill="#EEF2F7"/>
+    <text x="148" y="416" class="sans node-title">Messaging assistant</text>
+    <text x="148" y="454" class="sans node-copy">Receives and routes</text>
+    <text x="148" y="481" class="sans node-copy">the request</text>
+  </g>
+
+  <line x1="362" y1="429" x2="432" y2="429" stroke="#6B7480" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="430" y="294" width="600" height="270" rx="28" fill="#071E3D"/>
+    <text x="466" y="342" class="sans node-title-inverse">Local model lane</text>
+    <rect x="466" y="366" width="528" height="54" rx="16" fill="#0B2E5C"/>
+    <text x="490" y="399" class="sans node-title-inverse">Korean triage</text>
+    <text x="960" y="399" text-anchor="end" class="sans node-copy-inverse">4.8GB, always resident</text>
+
+    <rect x="466" y="434" width="250" height="94" rx="16" fill="#EEF2F7"/>
+    <text x="490" y="474" class="sans node-title">Analysis model</text>
+    <text x="490" y="505" class="sans node-copy">Loaded on demand</text>
+
+    <rect x="744" y="434" width="250" height="94" rx="16" fill="#EEF2F7"/>
+    <text x="768" y="474" class="sans node-title">Response MoE</text>
+    <text x="768" y="505" class="sans node-copy">Measured choice</text>
+
+    <rect x="466" y="544" width="528" height="38" rx="19" fill="#E08A12"/>
+    <text x="730" y="569" text-anchor="middle" class="sans pill" fill="#071E3D">ONE MODEL LOADED AT A TIME</text>
+  </g>
+
+  <path d="M1030 429 C1092 429, 1092 429, 1148 429" fill="none" stroke="#6B7480" stroke-width="3" stroke-dasharray="10 10" marker-end="url(#arrow)"/>
+  <text x="1088" y="390" text-anchor="middle" class="sans node-copy" font-size="15">local failure</text>
+  <text x="1088" y="410" text-anchor="middle" class="sans node-copy" font-size="15">only</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1146" y="358" width="338" height="142" rx="24" fill="#EEF2F7" stroke="#0A7D77" stroke-width="3"/>
+    <text x="1178" y="416" class="sans node-title">Cloud fallback</text>
+    <text x="1178" y="454" class="sans node-copy">Preserves completion</text>
+    <text x="1178" y="481" class="sans node-copy">when local execution fails</text>
+  </g>
+
+  <line x1="118" y1="655" x2="1484" y2="655" stroke="#DFE3E8" stroke-width="2"/>
+
+  <g>
+    <text x="118" y="733" class="sans metric">58%</text>
+    <text x="118" y="769" class="sans metric-label">fixed-prompt reduction</text>
+  </g>
+  <line x1="414" y1="699" x2="414" y2="784" stroke="#DFE3E8" stroke-width="2"/>
+  <g>
+    <text x="476" y="733" class="sans metric">67,781B → 28,655B</text>
+    <text x="476" y="769" class="sans metric-label">measured prompt size</text>
+  </g>
+  <line x1="1080" y1="699" x2="1080" y2="784" stroke="#DFE3E8" stroke-width="2"/>
+  <g>
+    <text x="1142" y="733" class="sans metric" fill="#0A7D77">413s → 78s</text>
+    <text x="1142" y="769" class="sans metric-label">same-request response</text>
+  </g>
+</svg>

@@ -6,8 +6,9 @@
 
 > **A 24/7 knowledge production system, local sLLMs and agents that continuously collect, distill, connect, and reuse knowledge. Nothing ships without a human gate.**
 
-⚙️ **Status:** running 24/7 on local infrastructure, 500+ tests, ~5s suite
-🇰🇷 한국어 요약은 [README.ko.md](./README.ko.md)를 참고하세요.
+**Status:** running 24/7 on local infrastructure, 750 tests passing in 9.4s
+
+한국어 요약은 [README.ko.md](./README.ko.md)를 참고하세요.
 
 ---
 
@@ -76,7 +77,13 @@ Local models cap at 64K context, and the system prompt eats ~60% of it, so **lon
 | Cloud models (selective) | large-context models for synthesis; metered APIs flag-gated |
 | Agent | Hermes Agent (scheduled orchestration + Telegram interface) |
 | Storage | Obsidian-compatible Markdown + JSON, git-versioned, local-only |
-| Verification | 500+ unit tests over pipeline scripts, ~5s full run |
+| Verification | 750 unit tests over pipeline scripts, all passing in the verified environment |
+
+## Verified Result
+
+`python -m unittest discover -s tests`
+
+Result on 2026-09-06: `Ran 750 tests in 9.424s`, `OK`.
 
 ## Wiki Concept
 
@@ -96,4 +103,4 @@ Each entry carries structured frontmatter (source, captured time, type, review s
 
 **Note:** This repository documents the architecture and workflow. The wiki contents, credentials, and personal data are not included.
 
-*Built by [Derrick Hwang](https://github.com/kordp888), AI Native Product Manager. Why comes first. Building comes next.*
+*Built by [Derrick Hwang](https://github.com/kordp888), AI Product Builder.*
